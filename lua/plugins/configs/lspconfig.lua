@@ -64,4 +64,6 @@ lspconfig.sumneko_lua.setup {
   },
 }
 
+lspconfig.rust_analyzer.setup {}
+
 return M
