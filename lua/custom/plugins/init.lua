@@ -10,4 +10,21 @@ return {
 
     end
   },
+  ['lukas-reineke/lsp-format'] = {
+    after = 'nvim-lspconfig',
+    config = function()
+      local present, lsp_format = pcall(require, "lsp_format")
+
+      if present then
+        lsp_format.setup {
+          typescript = {
+            tab_width = function()
+              return vim.opt.shiftwidth:get()
+            end,
+          },
+          yaml = { tab_width = 2 },
+        }
+      end
+    end
+  },
 }

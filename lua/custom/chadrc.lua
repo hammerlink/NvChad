@@ -8,5 +8,9 @@ M.ui = {
 M.plugins = require('custom.plugins.init')
 M.mappings = require('custom.mappings.init')
 
+local prettier = {
+    formatCommand = [[prettier --stdin-filepath ${INPUT} ${--tab-width:tab_width}]],
+    formatStdin = true,
+}
 
 return M
