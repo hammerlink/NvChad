@@ -27,4 +27,5 @@ return {
       end
     end
   },
+  ['tpope/vim-fugitive'] = {},
 }
