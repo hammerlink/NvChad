@@ -286,7 +286,7 @@ M.telescope = {
 
     -- git
     ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
-    ["<leader>cb"] = { "<cmd> Telescope git_bcommits <CR>", "git commits" },
+    ["<leader>cb"] = { "<cmd> Telescope git_bcommits <CR>", "git commit history current buffer" },
     ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "git status" },
 
     -- pick a hidden term
