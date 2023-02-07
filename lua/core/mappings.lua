@@ -41,13 +41,6 @@ M.general = {
     -- update nvchad
     ["<leader>uu"] = { "<cmd> :NvChadUpdate <CR>", "update nvchad" },
 
-    ["<leader>tt"] = {
-      function()
-        require("base46").toggle_theme()
-      end,
-      "toggle theme",
-    },
-
     -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
     -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
     -- empty mode is same as using <cmd> :map

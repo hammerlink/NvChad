@@ -64,12 +64,18 @@ lspconfig.sumneko_lua.setup {
   },
 }
 
-lspconfig.rust_analyzer.setup {  
+
+-- lspconfig.ngserver.setup {  
+--   on_attach = M.on_attach,
+--   capabilities = M.capabilities,
+-- }
+
+lspconfig.rust_analyzer.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 }
 
-lspconfig.tsserver.setup {  
+lspconfig.tsserver.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 }
