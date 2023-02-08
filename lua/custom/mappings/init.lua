@@ -1,6 +1,8 @@
 -- lua/custom/mappings
 local M = {}
-
+local function termcodes(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -20,6 +22,11 @@ M.hammernet = {
   n = {
     ["<leader>tt"] = {":split | te<CR>", "Open terminal, split horizontal"},
     ["<leader>tv"] = {":vsplit | te<CR>", "Open terminal, split horizontal"},
+    ["<leader>bb"] = {"<cmd> Telescope git_branches <CR>", "Telescope the current branches"},
+    ["<leader>pf"] = {":NodePrettier <CR>", "Custom Node prettier"},
+  },
+  t = {
+    -- ["<C-t>"] = { termcodes "<C-\\><C-N><C-w><C-q>", "close terminal window" },
   }
 }
 
