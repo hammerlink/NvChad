@@ -24,6 +24,7 @@ M.hammernet = {
     ["<leader>tv"] = {":vsplit | te<CR>", "Open terminal, split horizontal"},
     ["<leader>bb"] = {"<cmd> Telescope git_branches <CR>", "Telescope the current branches"},
     ["<leader>pf"] = {":NodePrettier <CR>", "Custom Node prettier"},
+    ["<A-S-Left>"] = { ":b# <CR>", "Open previous buffer"},
   },
   t = {
     -- ["<C-t>"] = { termcodes "<C-\\><C-N><C-w><C-q>", "close terminal window" },
