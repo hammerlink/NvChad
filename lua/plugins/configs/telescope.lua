@@ -62,10 +62,10 @@ local options = {
     buffers = {
       mappings = {
         i = {
-          ["<c-x>"] = require("telescope.actions").delete_buffer,
+          ["<c-d>"] = require("telescope.actions").delete_buffer,
         },
         n = {
-          ["<c-x>"] = require("telescope.actions").delete_buffer,
+          ["<c-d>"] = require("telescope.actions").delete_buffer,
         }
       }
     },
