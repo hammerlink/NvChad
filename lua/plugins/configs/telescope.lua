@@ -58,6 +58,18 @@ local options = {
       n = { ["q"] = require("telescope.actions").close },
     },
   },
+  pickers = {
+    buffers = {
+      mappings = {
+        i = {
+          ["<c-x>"] = require("telescope.actions").delete_buffer,
+        },
+        n = {
+          ["<c-x>"] = require("telescope.actions").delete_buffer,
+        }
+      }
+    },
+  },
 
   extensions_list = { "themes", "terms" },
 }
