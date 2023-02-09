@@ -6,8 +6,10 @@ end
 
 local M = {}
 
+M.nvterm = {}
+
 M.general = {
-  i = {
+  n = {
     -- go to  beginning and end
     ["<C-b>"] = { "<ESC>^i", "beginning of line" },
     ["<C-e>"] = { "<End>", "end of line" },
@@ -17,9 +19,6 @@ M.general = {
     ["<C-l>"] = { "<Right>", "move right" },
     ["<C-j>"] = { "<Down>", "move down" },
     ["<C-k>"] = { "<Up>", "move up" },
-  },
-
-  n = {
     ["<ESC>"] = { "<cmd> noh <CR>", "no highlight" },
 
     -- switch between windows
