@@ -40,9 +40,9 @@ return {
                 disable = false,
             },
         },
-        config = function()
-            require("custom.dap").setup()
-        end,
+        -- config = function()
+        --     require("custom.dap").setup()
+        -- end,
         disable = false,
     },
 }
