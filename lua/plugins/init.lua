@@ -34,15 +34,15 @@ local plugins = {
     end,
   },
 
-  ["NvChad/nvterm"] = {
-    module = "nvterm",
-    config = function()
-      require "plugins.configs.nvterm"
-    end,
-    setup = function()
-      require("core.utils").load_mappings "nvterm"
-    end,
-  },
+  -- ["NvChad/nvterm"] = {
+  --   module = "nvterm",
+  --   config = function()
+  --     require "plugins.configs.nvterm"
+  --   end,
+  --   setup = function()
+  --     require("core.utils").load_mappings "nvterm"
+  --   end,
+  -- },
 
   ["nvim-tree/nvim-web-devicons"] = {
     after = "ui",
@@ -190,26 +190,13 @@ local plugins = {
       require("core.utils").load_mappings "telescope"
     end,
   },
-
-  -- Only load whichkey after all the gui
-  ["folke/which-key.nvim"] = {
-    disable = true,
-    module = "which-key",
-    keys = { "<leader>", '"', "'", "`" },
-    config = function()
-      require "plugins.configs.whichkey"
-    end,
-    setup = function()
-      require("core.utils").load_mappings "whichkey"
-    end,
-  },
 }
 
 -- Load all plugins
 local present, packer = pcall(require, "packer")
 
 if present then
-  vim.cmd "packadd packer.nvim"
+  vim.cmd [[packadd packer.nvim]]
 
   -- Override with default plugins with user ones
   plugins = require("core.utils").merge_plugins(plugins)
