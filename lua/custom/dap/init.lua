@@ -78,30 +78,29 @@ local function configure_exts()
         dapui.open()
     end
     dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
+        -- dapui.close()
     end
     dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
+        -- dapui.close()
     end
 end
 
 local function configure_debuggers()
-    -- require("config.dap.lua").setup()
-    -- require("config.dap.python").setup()
-    -- require("config.dap.rust").setup()
-    -- require("config.dap.go").setup()
-    -- require("config.dap.csharp").setup()
-    -- require("config.dap.kotlin").setup()
+    -- require("custom.dap.lua").setup()
+    -- require("custom.dap.python").setup()
+    require("custom.dap.rust").setup()
+    -- require("custom.dap.go").setup()
+    -- require("custom.dap.csharp").setup()
+    -- require("custom.dap.kotlin").setup()
     require("custom.dap.javascript").setup()
-    -- require("config.dap.typescript").setup()
+    -- require("custom.dap.typescript").setup()
 end
 
 function M.setup()
-    require 'dap'.setup()
+    -- require 'dap'.setup()
     configure() -- Configuration
     configure_exts() -- Extensions
     configure_debuggers() -- Debugger
-    -- require("config.dap.keymaps").setup() -- Keymaps
 end
 
 configure_debuggers()

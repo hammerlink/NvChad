@@ -9,21 +9,25 @@ return {
             end
         end
     },
-    -- ['theHamsta/nvim-dap-virtual-text'] = {},
-    -- ['rcarriga/nvim-dap-ui'] = {},
-    --    ['nvim-telescope/telescope-dap.nvim'] = {
-    --        after = "nvim-telescope/telescope.nvim",
-    --        config = function()
-    --            require("telescope").load_extension("dap")
-    --        end
-    --    },
-    -- ['jbyuki/one-small-step-for-vimkind'] = { module = "osv" },
-    -- ['mxsdev/nvim-dap-vscode-js'] = {},
-    -- ['microsoft/vscode-js-debug'] = {},
+    ['simrat39/rust-tools.nvim'] = {
+        config = function()
+            -- local rt = require("rust-tools")
+            --
+            -- rt.setup({
+            --     server = {
+            --         on_attach = function(_, bufnr)
+            --             -- Hover actions
+            --             vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+            --             -- Code action groups
+            --             vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+            --         end,
+            --     },
+            -- })
+        end
+    },
     ['mfussenegger/nvim-dap'] = {
-        -- opt = true,
-        -- keys = { [[<leader>d]] },
         opt = true,
+        -- keys = { [[<leader>d]] },
         module = { "dap" },
         requires = {
             { "theHamsta/nvim-dap-virtual-text", module = { "nvim-dap-virtual-text" } },
