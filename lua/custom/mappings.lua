@@ -13,7 +13,10 @@ M.git = {
         ["<leader>gb"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
         ["<leader>gf"] = { "<cmd> Telescope git_bcommits <CR>", "Git file history" },
         ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
-        ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
+        ["<leader>gm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
+        ["<leader>gd"] = { "<cmd> DiffviewOpen <CR>", "Git Changes Diffview" },
+        ["<leader>gs"] = { "<cmd> DiffviewFileHistory <CR>", "Git FileHistory Diffview" },
+        ["<leader>gx"] = { "<cmd> DiffviewClose <CR>", "Git Close Diffview" },
     },
 }
 -- more keybinds!
