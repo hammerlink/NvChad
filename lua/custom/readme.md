@@ -12,8 +12,7 @@
 
 - Debugging features, integration with neotest
 
-- Close other buffers, in telescope, or all except selected buffers in windows
-
+- [x] Close other buffers, in telescope, or all except selected buffers in windows
 
 - Scratch file with file extension & formatting
 
@@ -47,3 +46,7 @@ Or it can visualize the changes between two branches.
 
 #### TODO
 Check how to combine diffview together with telescope branches.
+
+### Close other buffers
+
+Fixed with telescope close action for buffers and C-b.
