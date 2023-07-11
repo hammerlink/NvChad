@@ -102,15 +102,23 @@ local plugins = {
     -- },
     {
         "sindrets/diffview.nvim",
-        event = "VeryLazy"
+        event = "VeryLazy",
     },
     {
         "NeogitOrg/neogit",
         dependencies = {
             "nvim-lua/plenary.nvim",
+            "sindrets/diffview.nvim",
         },
-        event = "VeryLazy"
-    }
+        event = "VeryLazy",
+        config = function()
+            require("neogit").setup({
+                integrations = {
+                    diffview = true
+                }
+            })
+        end,
+    },
 }
 
 return plugins

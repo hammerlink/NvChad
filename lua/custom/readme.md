@@ -62,5 +62,3 @@ Used packages:
 - neogit
 - diffview
 
-TODO:
-- integrate neogit with diffview
