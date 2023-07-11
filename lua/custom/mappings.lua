@@ -16,7 +16,9 @@ M.git = {
         ["<leader>gm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
         ["<leader>gd"] = { "<cmd> DiffviewOpen <CR>", "Git Changes Diffview" },
         ["<leader>gs"] = { "<cmd> DiffviewFileHistory <CR>", "Git FileHistory Diffview" },
+        ["<leader>gr"] = { "<cmd> DiffviewRefresh <CR>", "Git FileHistory Diffview" },
         ["<leader>gx"] = { "<cmd> DiffviewClose <CR>", "Git Close Diffview" },
+        ["<leader>gg"] = { "<cmd> Neogit <CR>", "Git Neogit" },
     },
 }
 -- more keybinds!

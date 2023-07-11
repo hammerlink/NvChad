@@ -104,6 +104,13 @@ local plugins = {
         "sindrets/diffview.nvim",
         event = "VeryLazy"
     },
+    {
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        event = "VeryLazy"
+    }
 }
 
 return plugins

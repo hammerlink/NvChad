@@ -8,7 +8,8 @@
 
 - Run telescope from within selected nvim-tree folder
 
-- Git Features , Diff, Merge ...
+- [x] Git Features , Diff, Merge ...
+--> ? https://github.com/NeogitOrg/neogit
 
 - Debugging features, integration with neotest
 
@@ -27,6 +28,8 @@
 - Git checkout branch
 
 - Overseer run pnpm in sub package / adjust npm template
+
+- Replace text across project with reged (Spectre?)
 
 ## Implementation
 
@@ -47,6 +50,17 @@ Or it can visualize the changes between two branches.
 #### TODO
 Check how to combine diffview together with telescope branches.
 
+First step should be to add keymap to print all the selcted branches with tab
+
 ### Close other buffers
 
 Fixed with telescope close action for buffers and C-b.
+
+### Git
+
+Used packages:
+- neogit
+- diffview
+
+TODO:
+- integrate neogit with diffview
