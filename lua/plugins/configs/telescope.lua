@@ -78,10 +78,30 @@ local options = {
                 ["q"] = require("telescope.actions").close,
                 ["<C-x>"] = require("telescope.actions").close,
                 ["<C-b>"] = require("telescope.actions").delete_buffer,
+                ["<C-j>"] = {
+                    require("telescope.actions").move_selection_next,
+                    type = "action",
+                    opts = { nowait = true, silent = true },
+                },
+                ["<C-k>"] = {
+                    require("telescope.actions").move_selection_previous,
+                    type = "action",
+                    opts = { nowait = true, silent = true },
+                },
             },
             i = {
                 ["<C-x>"] = require("telescope.actions").close,
                 ["<C-b>"] = require("telescope.actions").delete_buffer,
+                ["<C-j>"] = {
+                    require("telescope.actions").move_selection_next,
+                    type = "action",
+                    opts = { nowait = true, silent = true },
+                },
+                ["<C-k>"] = {
+                    require("telescope.actions").move_selection_previous,
+                    type = "action",
+                    opts = { nowait = true, silent = true },
+                },
             },
         },
     },
