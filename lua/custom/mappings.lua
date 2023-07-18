@@ -33,6 +33,7 @@ M.general = {
         ["<leader>ut"] = { "<cmd> UndotreeToggle <CR>", "Undotree toggle" },
         ["<leader>uf"] = { "<cmd> UndotreeFocus <CR>", "Undotree focus" },
         ["<leader>tx"] = { "<cmd> tabclose <CR>", "Tab close" },
+        ["<leader>nx"] = { "<cmd> lua require('notify').dismiss() <CR>", "Close all notifications" },
         -- ["<leader>at"] = { "<cmd> ASToggle <CR>", "Autosave toggle" },
     },
 }
