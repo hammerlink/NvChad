@@ -31,6 +31,10 @@
 
 - Replace text across project with reged (Spectre?)
 
+- Optimize imports LSP?
+
+- Create LUA function to collapse all functions at the current level
+
 ## Implementation
 
 ### Autosave
@@ -62,3 +66,13 @@ Used packages:
 - neogit
 - diffview
 
+### Installing vue lsp
+
+Installing vue language server globally
+```bash
+npm i -g vls
+```
+
+added 'vuels' to the lspconfig.lua
+
+Installed Treesitter vue `:TSInstall vue`
