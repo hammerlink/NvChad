@@ -35,6 +35,8 @@
 
 - Create LUA function to collapse all functions at the current level
 
+- Neogit, local branch delete with parameter -D instead of -d
+
 ## Implementation
 
 ### Autosave

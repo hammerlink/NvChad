@@ -48,6 +48,13 @@ local plugins = {
         end,
     },
     ------ SPECTRE TODO ------
+    {
+        "nvim-pack/nvim-spectre",
+        opts = {},
+        config = function()
+            require "custom.configs.spectre"
+        end,
+    },
     ------ NEOTEST TODO ------
     {
         "antoinemadec/FixCursorHold.nvim",
