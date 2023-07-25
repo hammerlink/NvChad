@@ -31,7 +31,7 @@ local options = {
     },
   },
   renderer = {
-    root_folder_label = false,
+    root_folder_label = true,
     highlight_git = false,
     highlight_opened_files = "none",
 
