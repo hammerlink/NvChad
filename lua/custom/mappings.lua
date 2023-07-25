@@ -56,5 +56,10 @@ M.spectre = {
         ["<leader>sw"] = { "<esc><cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Search current word"},
     }
 }
+M.aerial = {
+    n = {
+        ["<leader>at"] = { "<cmd> AerialToggle <CR>", "Toggle Aerial"},
+    },
+}
 
 return M
