@@ -91,22 +91,6 @@ local plugins = {
         "mbbill/undotree",
         cmd = "UndotreeToggle",
     },
-    ------ PRETTIER ------
-    ------ DIFFVIEW ------
-    -- {
-    --   "sindrets/diffview",
-    --   cmd = "DiffviewFileHistory",
-    -- },
-    ------ AUTOSAVE ------
-    -- {
-    --   "Pocco81/auto-save.nvim",
-    --   cmd = "ASToggle",
-    --   config = function()
-    --       require("auto-save").setup {
-    --
-    --           }
-    --   end,
-    -- },
     ------ GIT ------
     {
         "sindrets/diffview.nvim",

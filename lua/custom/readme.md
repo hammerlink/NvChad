@@ -7,6 +7,7 @@
 - [x] Auto save upon switching buffers
 
 - Run telescope from within selected nvim-tree folder
+partially solved through spectre
 
 - [x] Git Features , Diff, Merge ...
 --> ? https://github.com/NeogitOrg/neogit
@@ -25,17 +26,19 @@
 
 - Return to previous page
 
-- Git checkout branch
+- [x] Git checkout branch
 
 - Overseer run pnpm in sub package / adjust npm template
 
-- Replace text across project with reged (Spectre?)
+- [x] Replace text across project with reged (Spectre?)
 
 - Optimize imports LSP?
 
 - Create LUA function to collapse all functions at the current level
 
 - Neogit, local branch delete with parameter -D instead of -d
+
+- Git, annotate lines in window
 
 ## Implementation
 
@@ -78,3 +81,10 @@ npm i -g vls
 added 'vuels' to the lspconfig.lua
 
 Installed Treesitter vue `:TSInstall vue`
+
+### Spectre
+Spectre installed with default settings, this allows for searching in specific folders
+Flow: press 'Y' in the nvim-tree and copy the relative path, paste it into the spectre windows
+=> Search and replace at will through default linux sed functionality
+
+NOTE there is also the possibility to work with rust-oxi instead of sed, to research
