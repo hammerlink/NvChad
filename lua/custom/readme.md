@@ -65,6 +65,8 @@ Check how to combine diffview together with telescope branches.
 
 First step should be to add keymap to print all the selcted branches with tab
 
+-> This is fixed with Neogit
+
 ### Close other buffers
 
 Fixed with telescope close action for buffers and C-b.
