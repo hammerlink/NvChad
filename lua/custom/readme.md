@@ -21,7 +21,7 @@
 
 - OpenAPI preview
 
-- Git rollback
+- [x] Git rollback fixed via neogit discard
 
 - Return to previous page
 
