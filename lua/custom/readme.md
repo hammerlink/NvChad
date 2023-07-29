@@ -42,6 +42,8 @@ partially solved through spectre
 
 - Debug firefox browser through dap
 
+- Aerial add functionality to fold code in the buffer via the aerial view
+
 ## Implementation
 
 ### Autosave
