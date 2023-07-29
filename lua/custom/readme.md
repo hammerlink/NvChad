@@ -40,6 +40,8 @@ partially solved through spectre
 
 - Git, annotate lines in window
 
+- Debug firefox browser through dap
+
 ## Implementation
 
 ### Autosave
