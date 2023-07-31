@@ -42,6 +42,7 @@ M.neotest = {
         ["<leader>nt"] = { "<cmd> Neotest summary toggle <CR>", "Neotest toggle" },
         ["<leader>na"] = { "<cmd> Neotest attach <CR>", "Neotest attach logs" },
         ["<leader>nr"] = { "<cmd> Neotest run <CR>", "Neotest run closest" },
+        ["<leader>ndr"] = { "<cmd> lua require(\"neotest\").run.run({strategy = \"dap\"}) <CR>", "Neotest run closest" },
         ["<leader>no"] = { "<cmd> Neotest output <CR>", "Neotest output" },
     },
 }
