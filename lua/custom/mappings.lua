@@ -61,5 +61,17 @@ M.aerial = {
         ["<leader>at"] = { "<cmd> AerialToggle <CR>", "Toggle Aerial"},
     },
 }
+M.debug = {
+    n = {
+        ["<leader>dt"] = { "<cmd> lua require('dapui').toggle() <CR>", "Toggle Debug UI" },
+        ["<leader>dc"] = { "<cmd> DapContinue <CR>", "Debug continue / start" },
+        ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>", "Toggle breakpoint" },
+        ["<leader>ds"] = { "<cmd> DapStepOver <CR>", "Debug Step Over" },
+        ["<leader>di"] = { "<cmd> DapStepInto <CR>", "Debug Step Into" },
+        ["<leader>do"] = { "<cmd> DapStepOut <CR>", "Debug Step Out" },
+        ["<leader>dx"] = { "<cmd> DapTerminate <CR>", "Debug Terminate" },
+        ["<leader>dl"] = { "<cmd> DapShowLog <CR>", "Debug show log" },
+    }
+}
 
 return M
