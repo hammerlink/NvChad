@@ -78,7 +78,21 @@ M.debug = {
         ["<leader>do"] = { "<cmd> DapStepOut <CR>", "Debug Step Out" },
         ["<leader>dx"] = { "<cmd> DapTerminate <CR>", "Debug Terminate" },
         ["<leader>dl"] = { "<cmd> DapShowLog <CR>", "Debug show log" },
-    }
+    },
+}
+M.trouble = {
+    n = {
+        ["<leader>xx"] = { "<cmd> TroubleClose <CR>", "Trouble close" },
+        ["<leader>xf"] = { "<cmd> TroubleToggle document_diagnostics <CR>", "Trouble open file diagnostics" },
+        ["<leader>xq"] = { "<cmd> TroubleToggle quickfix <CR>", "Trouble open file diagnostics" },
+        ["<leader>xw"] = { "<cmd> TroubleToggle workspace_diagnostics <CR>", "Trouble open workspace diagnostics" },
+        ["<leader>xr"] = { "<cmd> TroubleRefresh <CR>", "Refresh trouble" },
+    },
+}
+M.lspconfig = {
+    n = {
+        ["gr"] = { "<cmd> TroubleToggle lsp_references <CR>", "LSP references" },
+    },
 }
 
 return M
