@@ -42,24 +42,30 @@ M.neotest = {
         ["<leader>nt"] = { "<cmd> Neotest summary toggle <CR>", "Neotest toggle" },
         ["<leader>na"] = { "<cmd> Neotest attach <CR>", "Neotest attach logs" },
         ["<leader>nr"] = { "<cmd> Neotest run <CR>", "Neotest run closest" },
-        ["<leader>ndr"] = { "<cmd> lua require(\"neotest\").run.run({strategy = \"dap\"}) <CR>", "Neotest run closest" },
+        ["<leader>ndr"] = { '<cmd> lua require("neotest").run.run({strategy = "dap"}) <CR>', "Neotest run closest" },
         ["<leader>no"] = { "<cmd> Neotest output <CR>", "Neotest output" },
     },
 }
 M.spectre = {
     n = {
-        ["<leader>s"] = { "<cmd> lua require('spectre').open() <CR>", "Open Spectre"},
-        ["<leader>sw"] = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Search current word"},
-        ["<leader>sp"] = { "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>", "Search on current file"},
+        ["<leader>s"] = { "<cmd> lua require('spectre').open() <CR>", "Open Spectre" },
+        ["<leader>sw"] = { "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Search current word" },
+        ["<leader>sp"] = {
+            "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>",
+            "Search on current file",
+        },
     },
     v = {
-        ["<leader>s"] = { "<cmd> lua require('spectre').open() <CR>", "Open Spectre"},
-        ["<leader>sw"] = { "<esc><cmd>lua require('spectre').open_visual({select_word=true})<CR>", "Search current word"},
-    }
+        ["<leader>s"] = { "<cmd> lua require('spectre').open() <CR>", "Open Spectre" },
+        ["<leader>sw"] = {
+            "<esc><cmd>lua require('spectre').open_visual({select_word=true})<CR>",
+            "Search current word",
+        },
+    },
 }
 M.aerial = {
     n = {
-        ["<leader>at"] = { "<cmd> AerialToggle <CR>", "Toggle Aerial"},
+        ["<leader>at"] = { "<cmd> AerialToggle <CR>", "Toggle Aerial" },
     },
 }
 M.debug = {
