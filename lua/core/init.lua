@@ -94,13 +94,13 @@ autocmd("BufWritePost", {
     vim.g.transparency = config.ui.transparency
 
     -- statusline
-    require("plenary.reload").reload_module("nvchad_ui.statusline." .. config.ui.statusline.theme)
-    vim.opt.statusline = "%!v:lua.require('nvchad_ui.statusline." .. config.ui.statusline.theme .. "').run()"
+    require("plenary.reload").reload_module("nvchad.statusline." .. config.ui.statusline.theme)
+    vim.opt.statusline = "%!v:lua.require('nvchad.statusline." .. config.ui.statusline.theme .. "').run()"
 
     -- tabufline
     if config.ui.tabufline.enabled then
-      require("plenary.reload").reload_module "nvchad_ui.tabufline.modules"
-      vim.opt.tabline = "%!v:lua.require('nvchad_ui.tabufline.modules').run()"
+      require("plenary.reload").reload_module "nvchad.tabufline.modules"
+      vim.opt.tabline = "%!v:lua.require('nvchad.tabufline.modules').run()"
     end
 
     require("base46").load_all_highlights()
@@ -112,5 +112,5 @@ autocmd("BufWritePost", {
 local new_cmd = vim.api.nvim_create_user_command
 
 new_cmd("NvChadUpdate", function()
-  require "nvchad.update"()
+  require "nvchad.updater"()
 end, {})
