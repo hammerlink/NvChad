@@ -63,6 +63,9 @@ local plugins = {
         "haydenmeade/neotest-jest",
     },
     {
+        "rouge8/neotest-rust",
+    },
+    {
         "nvim-neotest/neotest",
         dependencies = {
             "nvim-lua/plenary.nvim",
@@ -81,6 +84,10 @@ local plugins = {
                         cwd = function(path)
                             return vim.fn.getcwd()
                         end,
+                    },
+                    require "neotest-rust" {
+                        args = { "--no-capture" },
+                        dap_adapter = "lldb",
                     },
                 },
             }
@@ -208,7 +215,7 @@ local plugins = {
             -- or leave it empty to use the default settings
             -- refer to the configuration section below
         },
-        cmd = { "TroubleToggle", "TroubleRefresh", "Trouble", "TroubleClose"}
+        cmd = { "TroubleToggle", "TroubleRefresh", "Trouble", "TroubleClose" },
     },
 }
 
