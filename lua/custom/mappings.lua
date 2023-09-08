@@ -6,6 +6,7 @@ M.telescope = {
         ["<leader>fy"] = { "<cmd> Telescope live_grep no_ignore=true hidden=true <CR>", "Live grep all" },
         ["<leader>fk"] = { "<cmd> Telescope keymaps <CR>", "Find keymaps" },
         ["<leader>fr"] = { "<cmd> Telescope resume <CR>", "Resume last find" },
+        ["<leader>fj"] = { "<cmd> Telescope jumplist <CR>", "Find recent file visits" },
     },
 }
 M.git = {
@@ -71,9 +72,10 @@ M.aerial = {
 M.debug = {
     n = {
         ["<leader>dt"] = { "<cmd> lua require('dapui').toggle() <CR>", "Toggle Debug UI" },
-        ["<leader>dc"] = { "<cmd> DapContinue <CR>", "Debug continue / start" },
+        ["<leader>dr"] = { "<cmd> lua require('dapui').open({reset = true}) <CR>", "Reset Debug UI" },
+        ["<F9>"] = { "<cmd> DapContinue <CR>", "Debug continue / start" },
         ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>", "Toggle breakpoint" },
-        ["<leader>ds"] = { "<cmd> DapStepOver <CR>", "Debug Step Over" },
+        ["<F8>"] = { "<cmd> DapStepOver <CR>", "Debug Step Over" },
         ["<leader>di"] = { "<cmd> DapStepInto <CR>", "Debug Step Into" },
         ["<leader>do"] = { "<cmd> DapStepOut <CR>", "Debug Step Out" },
         ["<leader>dx"] = { "<cmd> DapTerminate <CR>", "Debug Terminate" },
