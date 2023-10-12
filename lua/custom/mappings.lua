@@ -7,6 +7,7 @@ M.telescope = {
         ["<leader>fk"] = { "<cmd> Telescope keymaps <CR>", "Find keymaps" },
         ["<leader>fr"] = { "<cmd> Telescope resume <CR>", "Resume last find" },
         ["<leader>fj"] = { "<cmd> Telescope jumplist <CR>", "Find recent file visits" },
+        ["<leader>ft"] = { "<cmd> Telescope search_history <CR>", "Browse old searches" },
     },
 }
 M.git = {
@@ -35,6 +36,8 @@ M.general = {
         ["<leader>uf"] = { "<cmd> UndotreeFocus <CR>", "Undotree focus" },
         ["<leader>tx"] = { "<cmd> tabclose <CR>", "Tab close" },
         ["<leader>nx"] = { "<cmd> lua require('notify').dismiss() <CR>", "Close all notifications" },
+        ["<leader>bo"] = { "<cmd> %bd|e# <CR>", "Close all other buffers" },
+        ["<leader>lt"] = { "<cmd> InspectTree <CR>", "LSP Tree" },
         -- ["<leader>at"] = { "<cmd> ASToggle <CR>", "Autosave toggle" },
     },
 }
@@ -93,7 +96,11 @@ M.trouble = {
 }
 M.lspconfig = {
     n = {
-        ["gr"] = { "<cmd> TroubleToggle lsp_references <CR>", "LSP references" },
+        ["gd"] = {
+            "<cmd> Telescope lsp_definitions <CR>",
+            "LSP definition",
+        },
+        ["gr"] = { "<cmd> Telescope lsp_references <CR>", "LSP references" },
     },
 }
 
