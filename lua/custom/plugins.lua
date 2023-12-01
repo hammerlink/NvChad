@@ -163,7 +163,7 @@ local plugins = {
         event = "VeryLazy",
         config = function()
             require("dap-vscode-js").setup {
-                node_path = "/home/hendrik/.nvm/versions/node/v18.16.0/bin/node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
+                node_path = "/home/hendrik/.nvm/versions/node/v20.10.0/bin/node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
                 -- debugger_path = "/home/hendrik/.local/share/nvim/lazy/vscode-js-debug", -- Path to vscode-js-debug installation.
                 debugger_path = vim.fn.stdpath "data" .. "/lazy/vscode-js-debug", -- Path to vscode-js-debug installation.
                 -- debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
