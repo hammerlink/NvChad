@@ -28,6 +28,7 @@ M.overseer = {
     n = {
         ["<leader>ot"] = { "<cmd> OverseerToggle <CR>", "Ovseer toggle" },
         ["<leader>or"] = { "<cmd> OverseerRun <CR>", "Ovseer run" },
+        ["<leader>oo"] = { "<cmd> OverseerQuickAction <CR>", "Ovseer quick action" },
     },
 }
 M.general = {
