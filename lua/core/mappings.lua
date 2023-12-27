@@ -266,7 +266,23 @@ M.telescope = {
         -- find
         ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
         ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
-        ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
+        ["<leader>fw"] = {
+            function()
+                local search_dir = vim.fn.getcwd()
+                -- check if the nvim-tree is focused
+                if vim.bo.filetype == "NvimTree" then
+                    local selected_node = require("nvim-tree.api").tree.get_node_under_cursor()
+                    if selected_node then
+                        if selected_node.type == "directory" then
+                            search_dir = selected_node.absolute_path
+                            print("using cwd " .. search_dir)
+                        end
+                    end
+                end
+                require("telescope.builtin").live_grep { cwd = search_dir }
+            end,
+            "Live grep",
+        },
         ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
         ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
         ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
