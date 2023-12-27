@@ -1,1 +1,3 @@
-print('startup init')
+local cwd = vim.fn.getcwd()
+
+print("startup init " .. cwd)

@@ -1,3 +1,4 @@
+local custom_utils = require("custom.utils")
 ---@type NvPluginSpec[]
 local plugins = {
 
@@ -21,7 +22,7 @@ local plugins = {
             },
         },
         config = function()
-            require "plugins.configs.lspconfig"
+            require "plugins.configs.lspconfig" -- initializes LUA lsp
             require "custom.configs.lspconfig"
         end, -- Override to setup mason-lspconfig
     },
