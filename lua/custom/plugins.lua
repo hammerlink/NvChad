@@ -29,7 +29,7 @@ local plugins = {
     -- new plugins
     ------ OVERSEER ------
     {
-        "stevearc/overseer.nvim",
+        "hammerlink/overseer.nvim",
         opts = {},
         dependencies = "stevearc/dressing.nvim",
         init = function()
@@ -59,12 +59,10 @@ local plugins = {
     {
         "antoinemadec/FixCursorHold.nvim",
     },
-    {
-        "haydenmeade/neotest-jest",
-    },
-    {
-        "rouge8/neotest-rust",
-    },
+    { "haydenmeade/neotest-jest" },
+    { "rouge8/neotest-rust" },
+    { "marilari88/neotest-vitest" },
+    { "MarkEmmons/neotest-deno" },
     {
         "nvim-neotest/neotest",
         dependencies = {
@@ -78,9 +76,6 @@ local plugins = {
             require("neotest").setup {
                 adapters = {
                     require "neotest-jest" {
-                        -- jestCommand = "npm test --",
-                        -- jestConfigFile = "custom.jest.config.ts",
-                        -- env = { CI = true },
                         cwd = function(path)
                             return vim.fn.getcwd()
                         end,
@@ -89,6 +84,13 @@ local plugins = {
                         args = { "--no-capture" },
                         dap_adapter = "codelldb", -- LLDB MISSING!!
                     },
+                    require "neotest-vitest" {
+                        cwd = function(path)
+                            local closest_dir = custom_utils.find_closest_package_json_dir(path, vim.fn.getcwd())
+                            return closest_dir
+                        end,
+                    },
+                    require "neotest-deno" {},
                 },
             }
         end,
