@@ -102,6 +102,8 @@ M.lspconfig = {
             "LSP definition",
         },
         ["gr"] = { "<cmd> Telescope lsp_references <CR>", "LSP references" },
+        ["<leader>li"] = { "<cmd> LspInfo <CR>", "LSP info" },
+        ["<leader>lr"] = { "<cmd> LspRestart <CR>", "LSP restart" },
     },
 }
 
