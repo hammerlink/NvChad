@@ -275,7 +275,7 @@ M.telescope = {
                     if selected_node then
                         if selected_node.type == "directory" then
                             search_dir = selected_node.absolute_path
-                            print("using cwd " .. search_dir)
+                            print("telescope cwd " .. search_dir)
                         end
                     end
                 end
@@ -284,6 +284,7 @@ M.telescope = {
             "Live grep",
         },
         ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
+        ["<leader>fx"] = { "<cmd> Telescope diagnostics <CR>", "Find diagnostics" },
         ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
         ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
         ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
