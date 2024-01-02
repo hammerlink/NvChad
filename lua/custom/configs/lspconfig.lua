@@ -6,7 +6,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "clangd", "vuels", "pyright", "rust_analyzer" }
+local servers = { "html", "cssls", "clangd", "vuels", "pyright", "rust_analyzer", "yamlls" }
 
 local has_deno_json = custom_utils.root_cwd_file_exists "deno.json"
 local has_package_json = custom_utils.root_cwd_file_exists "package.json"
