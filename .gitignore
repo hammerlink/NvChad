@@ -7,3 +7,4 @@ coc-settings.json
 lazy-lock.json
 .idea/
 after
+**/.DS_Store
