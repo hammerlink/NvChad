@@ -97,19 +97,19 @@ local default_plugins = {
             vim.api.nvim_create_autocmd({ "BufRead" }, {
                 group = vim.api.nvim_create_augroup("GitSignsLazyLoad", { clear = true }),
                 callback = function()
-                          vim.fn.jobstart({"git", "-C", vim.loop.cwd(), "rev-parse"},
-                            {
-                              on_exit = function(_, return_code)
-                                if return_code == 0 then
-                                  vim.api.nvim_del_augroup_by_name "GitSignsLazyLoad"
-                                  vim.schedule(function()
+                    vim.fn.jobstart({ "git", "-C", vim.loop.cwd(), "rev-parse" }, {
+                        on_exit = function(_, return_code)
+                            if return_code == 0 then
+                                vim.api.nvim_del_augroup_by_name "GitSignsLazyLoad"
+                                vim.schedule(function()
                                     require("lazy").load { plugins = { "gitsigns.nvim" } }
-                                  end)
-                                end
-                              end
-                            }
-                          )
+                                end)
+                            end
                         end,
+                    })
+                end,
+            })
+        end,
         opts = function()
             return require("plugins.configs.others").gitsigns
         end,
@@ -131,11 +131,11 @@ local default_plugins = {
             require("mason").setup(opts)
 
             -- custom nvchad cmd to install all mason binaries listed
-          vim.api.nvim_create_user_command("MasonInstallAll", function()
-            if opts.ensure_installed and #opts.ensure_installed > 0 then
-              vim.cmd("MasonInstall " .. table.concat(opts.ensure_installed, " "))
-            end
-          end, {})
+            vim.api.nvim_create_user_command("MasonInstallAll", function()
+                if opts.ensure_installed and #opts.ensure_installed > 0 then
+                    vim.cmd("MasonInstall " .. table.concat(opts.ensure_installed, " "))
+                end
+            end, {})
 
             vim.g.mason_binaries_list = opts.ensure_installed
         end,
@@ -202,12 +202,12 @@ local default_plugins = {
     {
         "numToStr/Comment.nvim",
         keys = {
-            { "gcc", mode = "n", desc = "Comment toggle current line" },
-            { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
-            { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
-            { "gbc", mode = "n", desc = "Comment toggle current block" },
-            { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
-            { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
+            { "gcc", mode = "n",          desc = "Comment toggle current line" },
+            { "gc",  mode = { "n", "o" }, desc = "Comment toggle linewise" },
+            { "gc",  mode = "x",          desc = "Comment toggle linewise (visual)" },
+            { "gbc", mode = "n",          desc = "Comment toggle current block" },
+            { "gb",  mode = { "n", "o" }, desc = "Comment toggle blockwise" },
+            { "gb",  mode = "x",          desc = "Comment toggle blockwise (visual)" },
         },
         init = function()
             require("core.utils").load_mappings "comment"
