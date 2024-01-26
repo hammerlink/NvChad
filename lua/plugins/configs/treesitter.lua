@@ -1,5 +1,5 @@
 local options = {
-  ensure_installed = { "lua", "rust" },
+  ensure_installed = { "lua", "rust", "javascript", "typescript" },
 
   highlight = {
     enable = true,
