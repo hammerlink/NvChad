@@ -37,7 +37,7 @@ if has_deno_json then
 elseif has_package_json then
     if has_pnpm_workspace then
         print "pnpm workspace detected"
-        local pnpmPackages = custom_utils.getPNpmWorkSpacePackages()
+        local pnpmPackages = custom_utils.getPnpmWorkSpacePackages()
         lspconfig.tsserver.setup {
             root_dir = function()
                 return custom_utils.root_dir

@@ -1,4 +1,3 @@
-local lfs = require('lfs')
 local M = {}
 
 local RootJsTypes = {
@@ -53,14 +52,24 @@ end
 local function getDirectories(path)
     local dirs = {}
     print("getting directories " .. path)
-    for entry in lfs.dir(path) do
-        if entry ~= "." and entry ~= ".." then
+    local scanner, err = vim.loop.fs_scandir(path)
+    if not scanner then
+        print("Error scanning directory: " .. err)
+        return dirs
+    end
+
+    while true do
+        local entry, type = vim.loop.fs_scandir_next(scanner)
+        if not entry then
+            break
+        end
+
+        if type == "directory" and entry ~= "." and entry ~= ".." then
             local fullPath = path .. entry
-            if lfs.attributes(fullPath, "mode") == "directory" then
-                table.insert(dirs, fullPath)
-            end
+            table.insert(dirs, fullPath)
         end
     end
+
     return dirs
 end
 local function expandWildcards(packages, monorepoRoot)
@@ -99,7 +108,7 @@ M.parsePnpmWorkspaceFile = function(workspaceFilePath)
     file:close()
     return packages
 end
-M.getPNpmWorkSpacePackages = function()
+M.getPnpmWorkSpacePackages = function()
     local rawPackages = M.parsePnpmWorkspaceFile(root_dir .. "/pnpm-workspace.yaml")
     local packages = expandWildcards(rawPackages, root_dir)
     return packages
