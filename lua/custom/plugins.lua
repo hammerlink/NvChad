@@ -1,4 +1,4 @@
-local custom_utils = require("custom.utils")
+local custom_utils = require "custom.utils"
 ---@type NvPluginSpec[]
 local plugins = {
 
@@ -24,7 +24,7 @@ local plugins = {
         config = function()
             require "plugins.configs.lspconfig" -- initializes LUA lsp
             require "custom.configs.lspconfig"
-        end, -- Override to setup mason-lspconfig
+        end,                                    -- Override to setup mason-lspconfig
     },
 
     -- new plugins
@@ -71,6 +71,7 @@ local plugins = {
             "nvim-treesitter/nvim-treesitter",
             "antoinemadec/FixCursorHold.nvim",
             "haydenmeade/neotest-jest",
+            "marilari88/neotest-vitest",
         },
         cmd = "Neotest",
         config = function()
@@ -166,9 +167,9 @@ local plugins = {
         event = "VeryLazy",
         config = function()
             require("dap-vscode-js").setup {
-                node_path = "/home/hendrik/.nvm/versions/node/v20.10.0/bin/node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
+                -- node_path = "/home/hendrik/.nvm/versions/node/v20.11.0/bin/node",                            -- Path of node executable. Defaults to $NODE_PATH, and then "node"
                 -- debugger_path = "/home/hendrik/.local/share/nvim/lazy/vscode-js-debug", -- Path to vscode-js-debug installation.
-                debugger_path = vim.fn.stdpath "data" .. "/lazy/vscode-js-debug", -- Path to vscode-js-debug installation.
+                debugger_path = vim.fn.stdpath "data" .. "/lazy/vscode-js-debug",                            -- Path to vscode-js-debug installation.
                 -- debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
                 adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
                 -- log_file_path = "(stdpath cache)/dap_vscode_js.log" -- Path for file logging
