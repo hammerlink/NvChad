@@ -8,6 +8,7 @@ M.telescope = {
         ["<leader>fr"] = { "<cmd> Telescope resume <CR>", "Resume last find" },
         ["<leader>fj"] = { "<cmd> Telescope jumplist <CR>", "Find recent file visits" },
         ["<leader>ft"] = { "<cmd> Telescope search_history <CR>", "Browse old searches" },
+        ["<leader>fn"] = { "<cmd> Telescope notify <CR>", "Browse notifications" },
     },
 }
 M.git = {

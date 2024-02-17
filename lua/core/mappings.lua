@@ -275,8 +275,45 @@ M.telescope = {
 
     n = {
         -- find
-        ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
-        ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
+        ["<leader>ff"] = {
+            function()
+                local search_dir = vim.fn.getcwd()
+                -- check if the nvim-tree is focused
+                if vim.bo.filetype == "NvimTree" then
+                    local selected_node = require("nvim-tree.api").tree.get_node_under_cursor()
+                    if selected_node then
+                        if selected_node.type == "directory" then
+                            search_dir = selected_node.absolute_path
+                            print("telescope cwd " .. search_dir)
+                        end
+                    end
+                end
+                require("telescope.builtin").find_files { cwd = search_dir }
+            end,
+            "Find files",
+        },
+        ["<leader>fa"] = {
+            function()
+                local search_dir = vim.fn.getcwd()
+                -- check if the nvim-tree is focused
+                if vim.bo.filetype == "NvimTree" then
+                    local selected_node = require("nvim-tree.api").tree.get_node_under_cursor()
+                    if selected_node then
+                        if selected_node.type == "directory" then
+                            search_dir = selected_node.absolute_path
+                            print("telescope cwd " .. search_dir)
+                        end
+                    end
+                end
+                require("telescope.builtin").find_files {
+                    cwd = search_dir,
+                    follow = true,
+                    no_ignore = true,
+                    hidden = true,
+                }
+            end,
+            "Find all",
+        },
         ["<leader>fw"] = {
             function()
                 local search_dir = vim.fn.getcwd()
@@ -295,7 +332,13 @@ M.telescope = {
             "Live grep",
         },
         ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
-        ["<leader>fx"] = { "<cmd> Telescope diagnostics <CR>", "Find diagnostics" },
+        ["<leader>fx"] = {
+            function()
+                require("telescope.builtin").diagnostics { bufnr = 0 }
+            end,
+            "Find diagnostics",
+        },
+        ["<leader>fax"] = { "<cmd> Telescope diagnostics <CR>", "Find diagnostics" },
         ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
         ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
         ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
