@@ -50,6 +50,7 @@ M.neotest = {
         ["<leader>nr"] = { "<cmd> Neotest run <CR>", "Neotest run closest" },
         ["<leader>ndr"] = { '<cmd> lua require("neotest").run.run({strategy = "dap"}) <CR>', "Neotest run closest" },
         ["<leader>no"] = { "<cmd> Neotest output <CR>", "Neotest output" },
+        ["<leader>nf"] = { "<cmd> Neotest output <CR>", "Neotest output" },
     },
 }
 M.spectre = {
@@ -105,6 +106,14 @@ M.lspconfig = {
         ["gr"] = { "<cmd> Telescope lsp_references <CR>", "LSP references" },
         ["<leader>li"] = { "<cmd> LspInfo <CR>", "LSP info" },
         ["<leader>lr"] = { "<cmd> LspRestart <CR>", "LSP restart" },
+    },
+}
+M.gen = {
+    n = {
+        ["<leader>ar"] = { "<cmd> Gen <CR>", "AI Run" },
+    },
+    v = {
+        ["<leader>ar"] = { "<cmd> Gen <CR>", "AI Run" },
     },
 }
 

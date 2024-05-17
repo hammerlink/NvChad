@@ -88,6 +88,10 @@ local options = {
                     type = "action",
                     opts = { nowait = true, silent = true },
                 },
+                ["<C-s>"] = {
+                    require("telescope.actions").file_split,
+                    type = "action",
+                },
             },
             i = {
                 ["<C-x>"] = require("telescope.actions").close,
@@ -101,6 +105,10 @@ local options = {
                     require("telescope.actions").move_selection_previous,
                     type = "action",
                     opts = { nowait = true, silent = true },
+                },
+                ["<C-s>"] = {
+                    require("telescope.actions").file_split,
+                    type = "action",
                 },
             },
         },
