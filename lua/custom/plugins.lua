@@ -29,6 +29,7 @@ local plugins = {
 
     -- new plugins
     ------ OVERSEER ------
+
     {
         "hammerlink/overseer.nvim",
         opts = {},
@@ -57,6 +58,7 @@ local plugins = {
         end,
     },
     ------ NEOTEST TODO ------
+    { "nvim-neotest/nvim-nio" },
     {
         "antoinemadec/FixCursorHold.nvim",
     },
@@ -72,6 +74,7 @@ local plugins = {
             "antoinemadec/FixCursorHold.nvim",
             "haydenmeade/neotest-jest",
             "marilari88/neotest-vitest",
+            "nvim-neotest/nvim-nio",
         },
         cmd = "Neotest",
         config = function()
@@ -303,6 +306,14 @@ local plugins = {
             -- refer to the configuration section below
         },
         cmd = { "TroubleToggle", "TroubleRefresh", "Trouble", "TroubleClose" },
+    },
+    ---- AI
+    {
+        "David-Kunz/gen.nvim",
+        cmd = "Gen",
+        opts = {
+            model = "llama3",
+        },
     },
 }
 
