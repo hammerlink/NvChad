@@ -122,6 +122,12 @@ local plugins = {
                 integrations = {
                     diffview = true,
                 },
+                mappings = {
+                    popup = {
+                        ["g?"] = "HelpPopup",
+                        ["?"] = false,
+                    },
+                },
             }
         end,
     },
