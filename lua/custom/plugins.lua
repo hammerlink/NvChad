@@ -129,6 +129,9 @@ local plugins = {
                     },
                 },
             }
+            vim.cmd "highlight NeogitDiffDelete gui=bold guifg=#FAEBE8 guibg=#D1321B"
+            vim.cmd "highlight NeogitDiffDeleteCursor gui=bold guifg=#D1321B guibg=#FAEBE8"
+            vim.cmd "highlight NeogitDiffDeleteHighlight gui=bold guifg=#FAEBE8 guibg=#D1321B"
         end,
     },
     ------ Aerial ------
@@ -318,7 +321,7 @@ local plugins = {
         "David-Kunz/gen.nvim",
         cmd = "Gen",
         opts = {
-            model = "llama3",
+            model = "llama3.1",
         },
     },
 }

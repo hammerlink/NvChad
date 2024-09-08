@@ -1,5 +1,6 @@
 ---@type MappingsTable
 local M = {}
+-- Recursive function to print tables with proper formatting
 
 M.telescope = {
     n = {
@@ -9,6 +10,7 @@ M.telescope = {
         ["<leader>fj"] = { "<cmd> Telescope jumplist <CR>", "Find recent file visits" },
         ["<leader>ft"] = { "<cmd> Telescope search_history <CR>", "Browse old searches" },
         ["<leader>fn"] = { "<cmd> Telescope notify <CR>", "Browse notifications" },
+        ["<leader>fu"] = { "<cmd> Telescope treesitter <CR>", "Treesitter" },
     },
 }
 M.git = {
@@ -22,6 +24,12 @@ M.git = {
         ["<leader>gr"] = { "<cmd> DiffviewRefresh <CR>", "Git FileHistory Diffview" },
         ["<leader>gx"] = { "<cmd> DiffviewClose <CR>", "Git Close Diffview" },
         ["<leader>gg"] = { "<cmd> Neogit <CR>", "Git Neogit" },
+        ["<leader>gl"] = {
+            function()
+                require("telescope.builtin").git_status { use_file_path = true, expand_dir = false }
+            end,
+            "Local changes",
+        },
     },
 }
 -- more keybinds!
@@ -114,6 +122,9 @@ M.gen = {
     },
     v = {
         ["<leader>ar"] = { "<cmd> Gen <CR>", "AI Run" },
+        ["<leader>ad"] = { function () 
+            require('custom.configs.gen').analyze_selection()
+        end, "Diagnostics test" },
     },
 }
 
