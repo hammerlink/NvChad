@@ -6,7 +6,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "clangd", "vuels", "pyright", "rust_analyzer", "yamlls" }
+local servers = { "html", "cssls", "clangd", "vuels", "pyright", "rust_analyzer", "yamlls", "prismals" }
 
 local has_deno_json = custom_utils.root_cwd_file_exists "deno.json"
 local has_package_json = custom_utils.root_cwd_file_exists "package.json"
@@ -15,7 +15,7 @@ local has_pnpm_workspace = custom_utils.root_cwd_file_exists "pnpm-workspace.yam
 -- pnpm-workspace.yaml
 
 if has_deno_json then
-    print "deno detected, tsserver disabled"
+    print "deno detected, ts_ls disabled"
     lspconfig.denols.setup {
         on_attach = function(client, bufnr)
             utils.load_mappings("lspconfig", { buffer = bufnr })
@@ -38,7 +38,7 @@ elseif has_package_json then
     if has_pnpm_workspace then
         print "pnpm workspace detected"
         local pnpmPackages = custom_utils.getPnpmWorkSpacePackages()
-        lspconfig.tsserver.setup {
+        lspconfig.ts_ls.setup {
             root_dir = function()
                 return custom_utils.root_dir
             end,
@@ -71,10 +71,10 @@ elseif has_package_json then
             end,
         }
     else
-        table.insert(servers, "tsserver")
+        table.insert(servers, "ts_ls")
     end
 else
-    table.insert(servers, "tsserver")
+    table.insert(servers, "ts_ls")
 end
 
 for _, lsp in ipairs(servers) do
