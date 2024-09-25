@@ -16,7 +16,41 @@ M.telescope = {
 M.git = {
     n = {
         ["<leader>gb"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
-        ["<leader>gf"] = { "<cmd> Telescope git_bcommits <CR>", "Git file history" },
+        ["<leader>gf"] = {
+            function()
+                require("telescope.builtin").git_bcommits {
+                    git_command = {
+                        "git",
+                        "log",
+                        "--pretty='format:%h %ad %s'",
+                        "--date=iso-strict",
+                        "--abbrev-commit",
+                    },
+                    entry_maker = function(entry)
+                        print(entry)
+                        if not entry or entry == "" then
+                            return nil
+                        end
+
+                        local sha, date, msg = string.match(entry, "'format:([^ ]+) ([^ ]+) (.+)'")
+                        if not sha or not date or not msg then
+                            print("discarding", entry)
+                            return nil
+                        end
+
+                        return {
+                            value = sha,
+                            ordinal = sha .. " " .. msg,
+                            display = sha .. " " .. date .. " " .. msg,
+                            sha = sha,
+                            date = date,
+                            msg = msg,
+                        }
+                    end,
+                }
+            end,
+            "Git file history",
+        },
         ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
         ["<leader>gm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
         ["<leader>gd"] = { "<cmd> DiffviewOpen <CR>", "Git Changes Diffview" },
