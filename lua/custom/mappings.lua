@@ -1,6 +1,18 @@
 ---@type MappingsTable
 local M = {}
--- Recursive function to print tables with proper formatting
+
+local displayer = nil
+local make_display = function(entry)
+    if not displayer then
+        return ""
+    end
+    return displayer {
+        { entry.sha,   "TelescopeResultsIdentifier" },
+        { entry.date },
+        { entry.author },
+        entry.msg,
+    }
+end
 
 M.telescope = {
     n = {
@@ -18,12 +30,23 @@ M.git = {
         ["<leader>gb"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
         ["<leader>gf"] = {
             function()
+                if not displayer then
+                    displayer = require("telescope.pickers.entry_display").create {
+                        separator = " ",
+                        items = {
+                            { width = 8 },
+                            { width = 19 },
+                            { width = 7 },
+                            { remaining = true },
+                        },
+                    }
+                end
                 require("telescope.builtin").git_bcommits {
                     git_command = {
                         "git",
                         "log",
-                        "--pretty='format:%h %ad %s'",
-                        "--date=iso-strict",
+                        "--pretty='format:%h %ad %an %s'",
+                        "--date=format:%Y-%m-%dT%H:%M:%S",
                         "--abbrev-commit",
                     },
                     entry_maker = function(entry)
@@ -32,7 +55,7 @@ M.git = {
                             return nil
                         end
 
-                        local sha, date, msg = string.match(entry, "'format:([^ ]+) ([^ ]+) (.+)'")
+                        local sha, date, author, msg = string.match(entry, "'format:([^ ]+) ([^ ]+) ([^ ]+) (.+)'")
                         if not sha or not date or not msg then
                             print("discarding", entry)
                             return nil
@@ -41,9 +64,10 @@ M.git = {
                         return {
                             value = sha,
                             ordinal = sha .. " " .. msg,
-                            display = sha .. " " .. date .. " " .. msg,
+                            display = make_display,
                             sha = sha,
                             date = date,
+                            author = author,
                             msg = msg,
                         }
                     end,
