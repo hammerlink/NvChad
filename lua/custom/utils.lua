@@ -130,7 +130,7 @@ M.print_table = function(tbl, indent)
         local formatted_key = tostring(key)
         if type(value) == "table" then
             print(formatting .. formatted_key .. " = {")
-            print_table(value, indent + 4) -- Recursive call with increased indentation
+            M.print_table(value, indent + 4) -- Recursive call with increased indentation
             print(formatting .. "},")
         else
             print(formatting .. formatted_key .. " = " .. tostring(value) .. ",")
