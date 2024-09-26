@@ -77,6 +77,7 @@ M.git = {
         ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
         ["<leader>gm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
         ["<leader>gd"] = { "<cmd> DiffviewOpen <CR>", "Git Changes Diffview" },
+        ["<leader>gh"] = { "<cmd> DiffviewFileHistory<CR>", "Git FileHistory Diffview" },
         ["<leader>gs"] = { "<cmd> DiffviewFileHistory %<CR>", "Git FileHistory Diffview" },
         ["<leader>gr"] = { "<cmd> DiffviewRefresh <CR>", "Git FileHistory Diffview" },
         ["<leader>gx"] = { "<cmd> DiffviewClose <CR>", "Git Close Diffview" },
