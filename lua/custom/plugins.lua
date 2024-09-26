@@ -310,6 +310,24 @@ local plugins = {
                     -- ...,
                 },
             }
+            dap.adapters["pwa-node"] = {
+                type = "server",
+                host = "localhost",
+                port = "${port}",
+                executable = {
+                    command = "node",
+                    arg = { "~/.local/share/nvim/lazy/vscode-js-debug/out/src/dapDebugServer.js", "${port}" },
+                },
+            }
+            dap.adapters["pwa-bun"] = {
+                type = "server",
+                host = "localhost",
+                port = "${port}",
+                executable = {
+                    command = "bun",
+                    arg = { "~/.local/share/nvim/lazy/vscode-js-debug/out/src/dapDebugServer.js", "${port}" },
+                },
+            }
         end,
     },
     ---- AI
