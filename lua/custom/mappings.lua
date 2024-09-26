@@ -14,6 +14,13 @@ local make_display = function(entry)
     }
 end
 
+-- Add keybinding for closing Diffview with 'q'
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function()
+        vim.api.nvim_buf_set_keymap(0, "n", "q", ":DiffviewClose<CR>", { noremap = true, silent = true })
+    end,
+})
+
 M.telescope = {
     n = {
         ["<leader>fy"] = { "<cmd> Telescope live_grep no_ignore=true hidden=true <CR>", "Live grep all" },
