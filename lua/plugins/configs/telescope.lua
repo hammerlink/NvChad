@@ -1,5 +1,14 @@
 local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
+
+local copy_commit_hash = function(prompt_bufnr)
+    local entry = action_state.get_selected_entry()
+    local commit_hash = entry.value
+    vim.fn.setreg("+", commit_hash) -- Copy to system clipboard
+    print("Copied commit hash: " .. commit_hash)
+    actions.close(prompt_bufnr)
+end
+
 local options = {
     defaults = {
         vimgrep_arguments = {
@@ -91,24 +100,14 @@ local options = {
     pickers = {
         git_commits = {
             mappings = {
-                i = {
-                    ["<C-y>"] = function(prompt_bufnr)
-                        local entry = action_state.get_selected_entry()
-                        local commit_hash = entry.value
-                        vim.fn.setreg("+", commit_hash) -- Copy to system clipboard
-                        print("Copied commit hash: " .. commit_hash)
-                        actions.close(prompt_bufnr)
-                    end,
-                },
-                n = {
-                    ["<C-y>"] = function(prompt_bufnr)
-                        local entry = action_state.get_selected_entry()
-                        local commit_hash = entry.value
-                        vim.fn.setreg("+", commit_hash) -- Copy to system clipboard
-                        print("Copied commit hash: " .. commit_hash)
-                        actions.close(prompt_bufnr)
-                    end,
-                },
+                i = { ["<C-y>"] = copy_commit_hash },
+                n = { ["<C-y>"] = copy_commit_hash },
+            },
+        },
+        git_bcommits = {
+            mappings = {
+                i = { ["<C-y>"] = copy_commit_hash },
+                n = { ["<C-y>"] = copy_commit_hash },
             },
         },
     },
