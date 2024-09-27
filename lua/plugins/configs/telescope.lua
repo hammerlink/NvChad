@@ -1,32 +1,5 @@
-local function get_buffers(options)
-    local buffers = {}
-    local len = 0
-    local options_listed = options.listed
-    local vim_fn = vim.fn
-    local buflisted = vim_fn.buflisted
-
-    for buffer = 1, vim_fn.bufnr "$" do
-        if not options_listed or buflisted(buffer) ~= 1 then
-            len = len + 1
-            buffers[len] = buffer
-        end
-    end
-
-    return buffers
-end
-
-local close_other_buffers = function(prompt_bufnr)
-    print "deleting other buffers"
-    local action_state = require "telescope.actions.state"
-    local current_picker = action_state.get_current_picker(prompt_bufnr)
-    print "deleting other buffers"
-    current_picker:delete_selection(function(selection)
-        local force = vim.api.nvim_buf_get_option(selection.bufnr, "buftype") == "terminal"
-        local ok = pcall(vim.api.nvim_buf_delete, selection.bufnr, { force = force })
-        return ok
-    end)
-end
-
+local actions = require "telescope.actions"
+local action_state = require "telescope.actions.state"
 local options = {
     defaults = {
         vimgrep_arguments = {
@@ -115,6 +88,30 @@ local options = {
     },
 
     extensions_list = { "themes", "terms" },
+    pickers = {
+        git_commits = {
+            mappings = {
+                i = {
+                    ["<C-y>"] = function(prompt_bufnr)
+                        local entry = action_state.get_selected_entry()
+                        local commit_hash = entry.value
+                        vim.fn.setreg("+", commit_hash) -- Copy to system clipboard
+                        print("Copied commit hash: " .. commit_hash)
+                        actions.close(prompt_bufnr)
+                    end,
+                },
+                n = {
+                    ["<C-y>"] = function(prompt_bufnr)
+                        local entry = action_state.get_selected_entry()
+                        local commit_hash = entry.value
+                        vim.fn.setreg("+", commit_hash) -- Copy to system clipboard
+                        print("Copied commit hash: " .. commit_hash)
+                        actions.close(prompt_bufnr)
+                    end,
+                },
+            },
+        },
+    },
 }
 
 return options
