@@ -166,7 +166,16 @@ M.trouble = {
 M.lspconfig = {
     n = {
         ["gd"] = {
-            "<cmd> Telescope lsp_definitions <CR>",
+            function()
+                vim.lsp.buf.definition {
+                    on_list = function(options)
+                        if #options.items == 1 then
+                            return vim.lsp.buf.definition()
+                        end
+                        return require("telescope.builtin").lsp_definitions()
+                    end,
+                }
+            end,
             "LSP definition",
         },
         ["gr"] = { "<cmd> Telescope lsp_references <CR>", "LSP references" },
