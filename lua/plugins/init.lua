@@ -70,10 +70,12 @@ local default_plugins = {
             require("indent_blankline").setup(opts)
         end,
     },
-
     {
         "nvim-treesitter/nvim-treesitter",
         tag = "v0.9.2",
+        dependencies = {
+            "nvim-treesitter/playground", -- Install Playground
+        },
         init = function()
             require("core.utils").lazy_load "nvim-treesitter"
         end,

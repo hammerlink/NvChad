@@ -14,6 +14,16 @@ local make_display = function(entry)
     }
 end
 
+M.ward = {
+    v = {
+        ["fd"] = { "<Esc>", "VISUAL - Custom Escape" },
+    },
+    i = {
+        ["fd"] = { "<Esc>:w<CR>", "VISUAL - Custom Escape and Save" },
+        ["jj"] = { "<Esc>", "INSERT - Custom Escape" },
+    },
+}
+
 M.telescope = {
     n = {
         ["<leader>fy"] = { "<cmd> Telescope live_grep no_ignore=true hidden=true <CR>", "Live grep all" },
@@ -88,6 +98,17 @@ M.git = {
             end,
             "Local changes",
         },
+    },
+    v = {
+        ["<leader>gf"] = {
+            function()
+                require("telescope.builtin").git_bcommits_range {
+                    git_command = { "git", "log", "--pretty=format:%h %ad %s", "--abbrev-commit", "--date=iso" },
+                }
+            end,
+            "Git file history",
+        },
+        ["<leader>gs"] = { ":DiffviewFileHistory %<CR>", "Git FileHistory Diffview - selection" },
     },
 }
 -- more keybinds!
