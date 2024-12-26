@@ -75,6 +75,7 @@ local plugins = {
             "haydenmeade/neotest-jest",
             "marilari88/neotest-vitest",
             "nvim-neotest/nvim-nio",
+            "alfaix/neotest-gtest",
         },
         cmd = "Neotest",
         config = function()
@@ -96,6 +97,11 @@ local plugins = {
                         end,
                     },
                     require "neotest-deno" {},
+                    require("neotest-gtest").setup {
+                        -- Optional config
+                        root_pattern = "CMakeLists.txt", -- Pattern to find project root
+                        executable_pattern = "build/*",  -- Pattern to find executables
+                    },
                 },
             }
         end,
@@ -352,8 +358,8 @@ local plugins = {
         config = function()
             require("copilot").setup {
                 suggestion = {
-                    auto_trigger = true
-                }
+                    auto_trigger = true,
+                },
             }
         end,
     },
@@ -371,8 +377,8 @@ local plugins = {
         version = false, -- set this if you want to always pull the latest change
         opts = {
             -- add any opts here
-            ["local"] = true,
-            provider = "ollama",
+            -- ["local"] = true,
+            provider = "claude",
             vendors = {
                 ---@type AvanteProvider
                 ollama = {

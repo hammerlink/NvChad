@@ -215,6 +215,13 @@ M.gen = {
         ["<leader>ad"] = { function () 
             require('custom.configs.gen').analyze_selection()
         end, "Diagnostics test" },
+M.avante = {
+    n = {
+        ["<leader>av"] = { "<cmd> AvanteToggle <CR>", "Avante toggle" },
+        ["<leader>ax"] = { "<cmd> AvanteClear <CR>", "Avante clear" },
+    },
+    v = {
+        ["<leader>av"] = { "<cmd> AvanteToggle <CR>", "Avante toggle" },
     },
 }
 
