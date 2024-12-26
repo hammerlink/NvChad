@@ -1,5 +1,6 @@
 local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
+local telescope_quickfix_store = require "custom.telescope.quickfix_store"
 
 local copy_commit_hash = function(prompt_bufnr)
     local entry = action_state.get_selected_entry()
@@ -92,6 +93,7 @@ local options = {
                     require("telescope.actions").file_split,
                     type = "action",
                 },
+                ["<C-q>"] = telescope_quickfix_store.store_telescope_search,
             },
         },
     },

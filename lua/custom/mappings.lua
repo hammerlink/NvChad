@@ -1,3 +1,4 @@
+local telescope_quickfix_store = require "custom.telescope.quickfix_store"
 ---@type MappingsTable
 local M = {}
 
@@ -33,6 +34,7 @@ M.telescope = {
         ["<leader>ft"] = { "<cmd> Telescope search_history <CR>", "Browse old searches" },
         ["<leader>fn"] = { "<cmd> Telescope notify <CR>", "Browse notifications" },
         ["<leader>fu"] = { "<cmd> Telescope treesitter <CR>", "Treesitter" },
+        ["<leader>rq"] = { telescope_quickfix_store.refresh_quickfix, "Treesitter" },
     },
 }
 M.git = {
