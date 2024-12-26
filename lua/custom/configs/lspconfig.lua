@@ -6,13 +6,40 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "clangd", "vuels", "pyright", "rust_analyzer", "yamlls", "prismals" }
+local servers = { "html", "cssls", "vuels", "pyright", "rust_analyzer", "yamlls", "prismals" }
 
 local has_deno_json = custom_utils.root_cwd_file_exists "deno.json"
 local has_package_json = custom_utils.root_cwd_file_exists "package.json"
 local has_pnpm_workspace = custom_utils.root_cwd_file_exists "pnpm-workspace.yaml"
 
 -- pnpm-workspace.yaml
+lspconfig.clangd.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = {
+        "clangd",
+        "--compile-commands-dir=build",
+        "--background-index",
+        "--suggest-missing-includes",
+        "--clang-tidy",
+        "--header-insertion=iwyu",
+        "--all-scopes-completion",
+        "--completion-style=detailed",
+        "--header-insertion=never",
+        "--query-driver=/usr/bin/g++", -- Adjust this path based on your system
+    },
+    filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+    root_dir = lspconfig.util.root_pattern(
+        ".clangd",
+        ".clang-tidy",
+        ".clang-format",
+        "compile_commands.json",
+        "compile_flags.txt",
+        "configure.ac",
+        ".git"
+    ),
+    single_file_support = true,
+}
 
 if has_deno_json then
     print "deno detected, ts_ls disabled"
