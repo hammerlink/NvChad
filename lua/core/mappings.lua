@@ -340,6 +340,7 @@ M.telescope = {
         },
         ["<leader>fax"] = { "<cmd> Telescope diagnostics <CR>", "Find diagnostics" },
         ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
+        ["<leader>fH"] = { "<cmd> Telescope man_pages <CR>", "Man pages" },
         ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
         ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
 
